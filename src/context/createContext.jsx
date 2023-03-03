@@ -1,10 +1,14 @@
-// import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
-// const Createcontext = createContext(1);
+export const CounterContext = createContext();
 
-// function CounterProvider({ children }) {
-//   const [counter, setcounter] = useState(10);
-//   return <Createcontext.Provider value={}>{children}</Createcontext.Provider>;
-// }
+function ContextProvider({ children }) {
+  const [counter, setcounter] = useState(10);
+  return (
+    <CounterContext.Provider value={{ counter, setcounter }}>
+      {children}
+    </CounterContext.Provider>
+  );
+}
 
-// export default CounterProvider;
+export default ContextProvider;

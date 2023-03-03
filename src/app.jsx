@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ContextProvider, { CounterContext } from './context/createContext';
 import Auth from './Layouts/auth';
 import DashboardLayout from './Layouts/dashboardLayout';
 import About from './pages/About/about';
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={router}> </RouterProvider>;
+  return (
+    <ContextProvider>
+      <RouterProvider router={router}> </RouterProvider>
+    </ContextProvider>
+  );
 }
 
 export default App;
